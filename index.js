@@ -99,6 +99,7 @@ Data Types
 	const PEOPLE = {
 		firstName: 'Vinícius',
 		secondName: 'Leite',
+
 		getAge: function () {
 			let date = new Date();
 			return date.getFullYear - 1998;
@@ -141,7 +142,7 @@ Math
 	console.log(`The first incremented is equal to ${++num1}`);
 	console.log(`The second decremented is equal to ${--num2}`);
 	console.log(
-		`The square root of the second decremented is ${Math.sqrt(num1)}`
+		`The square root of the second decremented is ${Math.sqrt(num1)}.`
 	);
 }
 exercMath();
