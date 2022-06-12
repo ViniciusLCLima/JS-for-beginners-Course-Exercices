@@ -146,3 +146,58 @@ Math
 	);
 }
 exercMath();
+
+// converting strings to numbers and numbers to strings
+
+function exercConvertStrNum() {
+	console.log(`
+
+Converting strings to numbers and numbers to strings
+	`);
+	const NUM1 = 20;
+	const NUM2 = 5;
+	const NUM3 = 9.5;
+	const STR1 = 'Today';
+	const STR2 = '80';
+	const STR3 = '8.5';
+	const STR4 = '0xFFF';
+	console.log(`NUM1 converted to string is: ${NUM1.toString()}`);
+	console.log(`NUM2 converted to string is: ${NUM2.toString()}`);
+	console.log(`NUM3 converted to string is: ${NUM3.toString()}`);
+	console.log(
+		`STR1 converted to number returns NaN, cause of no numerical characters in it: ${parseInt(
+			STR1
+		)}`
+	);
+	console.log(`STR2 converted to number is "80": ${parseInt(STR2)}`);
+	console.log(
+		`STR3 converted to number with parseInt is 8, cause anything from the special character on is discarded: ${parseInt(
+			STR3
+		)}. With parseFloat we can get 8.5: ${parseFloat(STR3)}`
+	);
+	console.log(
+		`It is possible to get the value of hexadecimal numbers in string by preceding that number with 0x, so value of STR4 is: ${parseInt(
+			STR4
+		)}`
+	);
+}
+exercConvertStrNum();
+
+//Dealing with and throwing errors
+
+function exercDealingWithErrors() {
+	try {
+		throw MyError;
+	} catch (ex) {
+		console.log('This will be printed cause throw keyword, throws an error.');
+		console.log(
+			'We can pass ex argument to catch for us to get the thrown error to it.'
+		);
+		console.log(ex);
+	} finally {
+		console.log(
+			'This will be printed cause the block of code inside "finally" will always run'
+		);
+	}
+}
+exercDealingWithErrors();
