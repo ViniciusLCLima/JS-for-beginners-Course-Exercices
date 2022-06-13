@@ -133,14 +133,14 @@ Math
 	console.log(
 		`The first variable is equal to ${num1} and, the second, to ${num2}`
 	);
-	console.log(`Their sum is equal to ${num1 + num2}`);
-	console.log(`The subtraction of the first to the second is ${num1 - num2}`);
-	console.log(`The division of first by the second is ${num1 / num2}`);
+	console.log(`Their sum is equal to ${num1 + num2}.`);
+	console.log(`The subtraction of the first to the second is ${num1 - num2}.`);
+	console.log(`The division of first by the second is ${num1 / num2}.`);
 	console.log(
-		`The multiplication between the first and the second is ${num1 * num2}`
+		`The multiplication between the first and the second is ${num1 * num2}.`
 	);
-	console.log(`The first incremented is equal to ${++num1}`);
-	console.log(`The second decremented is equal to ${--num2}`);
+	console.log(`The first incremented is equal to ${++num1}.`);
+	console.log(`The second decremented is equal to ${--num2}.`);
 	console.log(
 		`The square root of the second decremented is ${Math.sqrt(num1)}.`
 	);
@@ -201,3 +201,187 @@ function exercDealingWithErrors() {
 	}
 }
 exercDealingWithErrors();
+
+// Working with dates
+
+function exercDates() {
+	console.log(`
+	
+Dates
+	`);
+	const NOW = new Date();
+	const THANKSGIVING2022 = new Date(2022, 10, 24);
+	const EVENTDAY = new Date();
+	EVENTDAY.setDate(20);
+	EVENTDAY.setMonth(8);
+	EVENTDAY.setHours(20);
+	console.log(`Time now: ${NOW}`);
+	console.log(`Current day of the week: ${NOW.getDay() + 1}.`);
+	console.log(
+		`Thanksgiving day happens on ${
+			THANKSGIVING2022.getDay() + 1
+		} day of the week`
+	);
+	console.log(
+		`The event will happen at ${EVENTDAY.getHours()} o'clock of day ${EVENTDAY.getDate()} of month ${
+			EVENTDAY.getMonth() + 1
+		}`
+	);
+}
+exercDates();
+
+// If statements and boolean operators
+function exercIfStatements() {
+	console.log(`
+	
+If statements
+	`);
+	const TEAM1GOALS = 2;
+	const TEAM2GOALS = 2;
+	console.log(
+		'We have a game where two teams scored both two goals. Let if statement tell what was the result of the game:'
+	);
+	if (TEAM1GOALS > TEAM2GOALS) {
+		console.log('Team 1 won!');
+	} else if (TEAM1GOALS === TEAM2GOALS) {
+		console.log('The game has drawn.');
+	} else {
+		console.log('Team 2 won!');
+	}
+	console.log(
+		'Another way to do it is through a shorthand way with no braces. Since we just need one line of code for the different results.'
+	);
+	if (TEAM1GOALS > TEAM2GOALS) console.log('Team 1 won!');
+	else if (TEAM1GOALS === TEAM2GOALS) console.log('The game has drawn.');
+	else console.log('Team 2 won!');
+	console.log('We also have another way to assign variables with if.');
+	const TODAY = new Date();
+	const TODAYEVENORODD = TODAY.getDate() % 2 === 0 ? 'even' : 'odd';
+	console.log(`Today is an ${TODAYEVENORODD} day.`);
+}
+exercIfStatements();
+
+// exerc switch, string cases, implicit values and more boolean logic
+function exercSwitchAndOtherThings() {
+	console.log(`
+
+Switch, string cases and more boolean logic
+`);
+	console.log('JavaScript treats strings differently according to their case.');
+	const NAME = 'Cristopher';
+	if (NAME.toUpperCase() === 'CRISTOPHER') {
+		console.log('Cristopher is here!');
+	} else {
+		console.log('Something gone wrong!');
+	}
+	const VALUE = 0;
+	if (VALUE) {
+		console.log('The VALUE constant has some value.');
+	} else {
+		console.log(
+			'Since JS treats default values to data types as false, we can say the constant VALUE has no value'
+		);
+	}
+	console.log(`Which one do you want to know about?`);
+	const STATUS = 200;
+	switch (STATUS) {
+		case 200:
+			console.log('Everything worked fine.');
+			break;
+		case 400:
+		case 500:
+			console.log('Error.');
+			break;
+		default:
+			console.log('Unknown status');
+	}
+	const FAVORITETOY = 'ball';
+	console.log(
+		`Let's know what the computer says about my favourite toy with if statement and boolean operators. It is ${FAVORITETOY}.`
+	);
+	if (FAVORITETOY === 'doll' || FAVORITETOY === 'toy car') {
+		console.log('Wow, i like it too!');
+	} else if ('ball') {
+		console.log(
+			"Balls are good to kid with, there're lots of things you can do with it."
+		);
+	} else {
+		console.log("Sorry, I didn't understand you.");
+	}
+}
+exercSwitchAndOtherThings();
+
+// Creating arrays
+
+function exercCreatingArrays() {
+	const ARRLENGTH = 3;
+	const ARR1 = [];
+	const ARR2 = Array(5);
+	const ARR3 = Array(ARRLENGTH);
+	console.log(`The array 1 has a length of ${ARR1.length}, cause it is empty.`);
+	console.log(`The array 2 has a length of ${ARR2.length}`);
+	console.log(`The array 3 has a length of ${ARR3.length}`);
+}
+exercCreatingArrays();
+
+// Populating arrays
+
+function exercPopArrays() {
+	console.log(`
+	
+Populating Arrays
+`);
+	const ARR1 = ['Mouse', 'Laptop', 'Computer'];
+	const ARR2 = Array(5);
+	console.log(
+		`We can get the value of the last element of an array by subtracting one from its length. Like, the value of the last element of ARR1 is ${
+			ARR1[ARR1.length - 1]
+		}`
+	);
+	ARR2[ARR2.length - 1] = "value of array's last element";
+	console.log(
+		`We can also change it this way. So the value of the last element of ARR2 now is "${
+			ARR2[ARR2.length - 1]
+		}".`
+	);
+	console.log(
+		`The value of ARR2 first element is ${ARR2[0]}, since no value has been assigned to it.`
+	);
+}
+exercPopArrays();
+
+// Array methods
+
+function exercArrayMethods() {
+	console.log(`
+	
+Array methods
+	`);
+	const POSITIONS = [
+		'N. Hulkenberg',
+		'V. Bottas',
+		'M. Verstappen',
+		'L. Hamilton',
+	];
+	console.log(
+		`The top five of the F1 classification today were: ${POSITIONS.join(', ')}.`
+	);
+	console.log(
+		`${POSITIONS.pop()} was disqualified and also ${POSITIONS.shift()}`
+	);
+	POSITIONS.unshift('M. Schumacher');
+	POSITIONS.push('S. Ocon');
+	FINALTOP10 = POSITIONS.concat([
+		'K. Raikkonen',
+		'Norris',
+		'S. Vettel',
+		'C. Leclerc',
+		'D. Ricciardo',
+	]);
+	console.log(
+		`Since S. Ocon got to the fifth place in the race, and M. Schumacher got first, the final top 10 was ${FINALTOP10.join(
+			', '
+		)}.`
+	);
+}
+exercArrayMethods();
