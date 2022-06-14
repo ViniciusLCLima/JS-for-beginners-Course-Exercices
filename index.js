@@ -99,7 +99,6 @@ Data Types
 	const PEOPLE = {
 		firstName: 'Vinícius',
 		secondName: 'Leite',
-
 		getAge: function () {
 			let date = new Date();
 			return date.getFullYear - 1998;
@@ -360,6 +359,7 @@ Array methods
 	const POSITIONS = [
 		'N. Hulkenberg',
 		'V. Bottas',
+		'S. Perez',
 		'M. Verstappen',
 		'L. Hamilton',
 	];
@@ -373,7 +373,7 @@ Array methods
 	POSITIONS.push('S. Ocon');
 	FINALTOP10 = POSITIONS.concat([
 		'K. Raikkonen',
-		'Norris',
+		'L. Norris',
 		'S. Vettel',
 		'C. Leclerc',
 		'D. Ricciardo',
@@ -385,3 +385,125 @@ Array methods
 	);
 }
 exercArrayMethods();
+
+function getTop10() {
+	const POSITIONS = [
+		'N. Hulkenberg',
+		'V. Bottas',
+		'S. Perez',
+		'M. Verstappen',
+		'L. Hamilton',
+	];
+	POSITIONS.pop();
+	POSITIONS.shift();
+	POSITIONS.unshift('M. Schumacher');
+	POSITIONS.push('S. Ocon');
+	return POSITIONS.concat([
+		'K. Raikkonen',
+		'L. Norris',
+		'S. Vettel',
+		'C. Leclerc',
+		'D. Ricciardo',
+	]);
+}
+
+// Loops
+
+function exercLoops() {
+	console.log(`
+	
+Loops
+	`);
+	const POSITIONS = getTop10();
+	console.log(
+		"Let's see the final classification in a more funny and efficient way with loops:"
+	);
+	console.log('Using a while loop:');
+	let whileIndex = 0;
+	while (whileIndex < POSITIONS.length) {
+		const name = POSITIONS[whileIndex];
+		console.log(`${whileIndex + 1}. ${name}`);
+		whileIndex++;
+	}
+	console.log(`
+	Using a for loop:`);
+	for (let forIndex = 0; forIndex < POSITIONS.length; forIndex++) {
+		const name = POSITIONS[forIndex];
+		console.log(`${forIndex + 1}. ${name}`);
+	}
+	console.log(`
+	Using a for ... of loop:`);
+	let pos = 1;
+	for (const NAME of POSITIONS) {
+		console.log(`${pos}. ${NAME}`);
+		pos++;
+	}
+}
+exercLoops();
+
+// Functions
+
+function exercFunctions() {
+	console.log(`
+
+Functions
+`);
+	console.log(
+		"Let's make a function that calculates de sum between two numbers and returns it."
+	);
+	function sum2Numbers(num1, num2) {
+		const SUM = num1 + num2;
+		return SUM;
+	}
+	console.log(
+		`Now we can know, by calling the function ${
+			sum2Numbers.name
+		}, the sum between 3 and 4 is ${sum2Numbers(3, 4)}`
+	);
+}
+exercFunctions();
+
+// Arrow functions
+
+function exercArrowFunctions() {
+	console.log(`
+	
+Arrow Functions
+`);
+	console.log(
+		'Arrow functions are a shorthand way to create functions and can work differently from normal ones.'
+	);
+	const FNHELLO = () =>
+		"Hello! Here we're calling an Arrow function that implicitly returns this string.";
+	console.log(FNHELLO());
+	const FNHELLOSOMEONE = (name) => {
+		return (
+			'Hello ' +
+			name +
+			"! Here we're calling an arrow function that explicitly returns this string and can take more than one line."
+		);
+	};
+	console.log(FNHELLOSOMEONE('someone'));
+}
+exercArrowFunctions();
+
+// JSON
+
+function exercJSON() {
+	console.log(`
+
+JSON
+`);
+	const JSONPRODUCTS = `[{"Name":"Social shirt", "Price": 30.00},{"Name":"short", "Price": 20.00},{"Name":"glasses", "Price": 90.00},{"Name":"Jeans shirt", "Price": 40.00}]`;
+	const OBJ = JSON.parse(JSONPRODUCTS);
+	console.log(Array.isArray(OBJ));
+	console.log(`Here's the JSON we converted into an object, printed to the console:
+${OBJ}`);
+	console.log(
+		`The price of the third product of the array is equal to: ${OBJ[2].price}`
+	);
+	const JSONOBJ = JSON.stringify(OBJ);
+	console.log(`Here's it again converted back to JSON:
+${JSONOBJ}`);
+}
+exercJSON();
