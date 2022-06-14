@@ -494,11 +494,11 @@ function exercJSON() {
 
 JSON
 `);
-	const JSONPRODUCTS = `[{"Name":"Social shirt", "Price": 30.00},{"Name":"short", "Price": 20.00},{"Name":"glasses", "Price": 90.00},{"Name":"Jeans shirt", "Price": 40.00}]`;
+	const JSONPRODUCTS = `[{"name":"Social shirt", "price": 30.00},{"name":"short", "price": 20.00},{"name":"glasses", "price": 90.00},{"name":"Jeans shirt", "price": 40.00}]`;
 	const OBJ = JSON.parse(JSONPRODUCTS);
 	console.log(Array.isArray(OBJ));
-	console.log(`Here's the JSON we converted into an object, printed to the console:
-${OBJ}`);
+	console.log("Here's the JSON we converted into an object:");
+	console.log(OBJ);
 	console.log(
 		`The price of the third product of the array is equal to: ${OBJ[2].price}`
 	);
