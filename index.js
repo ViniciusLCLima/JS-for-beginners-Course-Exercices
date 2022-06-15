@@ -353,7 +353,7 @@ exercPopArrays();
 
 function exercArrayMethods() {
 	console.log(`
-	
+
 Array methods
 	`);
 	const POSITIONS = [
@@ -507,3 +507,93 @@ JSON
 ${JSONOBJ}`);
 }
 exercJSON();
+
+//Objects
+
+function exercObjects() {
+	console.log(`
+
+Objects
+`);
+	console.log(
+		'We can create objects by assigning object literals to variables.'
+	);
+	const USER = {
+		name: 'Johnny Walker',
+		age: '25',
+		isSubscribed: false,
+		subscribe: function () {
+			this.isSubscribed = true;
+			return this.name + ' is now subscribed.';
+		},
+		unsubscribe: function () {
+			this.isSubscribed = false;
+			return this.name + ' has unsubscribed.';
+		},
+	};
+	console.log(`Here we created our user with name ${USER.name} and age ${
+		USER.age
+	}.
+By calling its method subscribe, we get that:
+${USER.subscribe()}
+If we call the method unsubscribe:
+${USER.unsubscribe()}`);
+	console.log('It is also possible to create them with constructors.');
+	const person = new Object();
+	person.name = 'Cristovão Colombo';
+	person.getName = function () {
+		return this.name;
+	};
+	console.log(`Here we created a new object with name ${person.getName()}.`);
+}
+exercObjects();
+
+// Promises
+
+function exercPromises() {
+	const promise = new Promise((resolve, reject) => {
+		console.log('\n\nPromises\n');
+		console.log(
+			'Promises are a way of making code be executed just after another is, so that it will get the results of this other.\n' +
+				'After this printing is made, a string will be set to the result of the Promise object so that we can use it after, in other operations.'
+		);
+		resolve('Operation completed');
+	})
+		.then((result) => {
+			console.log('The result of the promise object is: ', result);
+			return 90;
+		})
+		.then((result) => {
+			console.log(
+				"And it is possible to chain the results to give input to other consuming code, here we've got the number",
+				result
+			);
+		});
+}
+exercPromises();
+
+// Async/Await
+
+function exercAsyncAwait() {
+	console.log('\n\nAsync/Await\n');
+	console.log(
+		`Async/Await is a more convenient way of managing promises, since the code won't become too much messy by "thens".`
+	);
+	function pickPromise() {
+		return new Promise((resolve, reject) => {
+			let index = 0;
+			let sum = 0;
+			for (let i = 0; i < 20; i++) {
+				sum += i;
+			}
+			resolve(sum);
+		});
+	}
+	async function showSum() {
+		console.log('Sum between 0 to 19th number:');
+		const sum = await pickPromise();
+		console.log(sum);
+	}
+	showSum();
+}
+setTimeout(exercAsyncAwait, 0);
